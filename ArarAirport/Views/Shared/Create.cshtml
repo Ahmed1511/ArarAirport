@@ -1,0 +1,110 @@
+﻿@model ArarAirport.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="offset3">
+    @using (Html.BeginForm("Create", "Employees"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ID)
+        <label class="titlelabel">البيانات الشخصية للموظف</label>
+        <hr />
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", autofocus = "autofocus" })
+                    @Html.ValidationMessageFor(m=>m.FirstName)
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MidName)
+                    @Html.TextBoxFor(m => m.MidName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MidName)
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DateofBirth)
+                    @Html.TextBoxFor(m => m.DateofBirth, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.DateofBirth)
+                </div>
+            </div>
+        </div>
+        <hr />
+        <label class="titlelabel">البيانات الوظيفية</label>
+        <hr />
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IDCodeNum)
+                    @Html.TextBoxFor(m => m.IDCodeNum, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IDCodeNum)
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Position)
+                    @Html.EnumDropDownListFor(m => m.Position, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.PositionID)
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ContractType)
+                    @Html.EnumDropDownListFor(m => m.ContractType, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ContractTypeID)
+                </div>
+            </div>
+        </div>
+        <hr />
+        <label class="titlelabel">التواصل</label>
+        <hr />
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.PhoneNumber)
+                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.PhoneNumber)
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MailAddress)
+                    @Html.TextBoxFor(m => m.MailAddress, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MailAddress)
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <button class="btn btn-default btn-link btn-lg pull-left">الغاء</button>
+                <button class="btn btn-primary btn-lg pull-left" type="submit">حفظ</button>
+
+            </div>
+        </div>
+
+
+
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace ArarAirport.Models
 {
@@ -29,5 +26,7 @@ namespace ArarAirport.Models
         public Position Position { get; set; }
 
         public int PositionID { get; set; }
+
+        public bool IsCancel { get; set; }
     }
 }

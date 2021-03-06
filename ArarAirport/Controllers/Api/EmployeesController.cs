@@ -1,5 +1,4 @@
-﻿using ArarAirport.Dto;
-using ArarAirport.Models;
+﻿using ArarAirport.Models;
 using System.Linq;
 using System.Web.Http;
 
@@ -17,7 +16,7 @@ namespace ArarAirport.Controllers.Api
         [HttpGet]
         public IHttpActionResult Get()
         {
-            var employees = _context.Employees.ToList();
+            var employees = _context.Employees.Where(a => a.IsCancel == false).ToList();
 
             return Ok(employees);
         }
@@ -30,7 +29,15 @@ namespace ArarAirport.Controllers.Api
             return Ok(employee);
         }
 
-        
+        public IHttpActionResult Delete(int id)
+        {
+            var employee = _context.Employees.SingleOrDefault(c => c.ID == id);
+            employee.IsCancel = true;
+            _context.SaveChanges();
+            return Ok();
+        }
+
+
 
     }
 }

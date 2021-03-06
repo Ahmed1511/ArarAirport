@@ -3,60 +3,142 @@
     ViewBag.Title = "Index";
 }
 <div class="offset2">
-    @Html.ActionLink("جديد","Create",null,new {@class= "btn btn-primary btn-lg" })
+    @Html.ActionLink("جديد", "Create", null, new { @class = "btn btn-primary btn-lg" })
 </div>
-    <div class="offset3 gray">
+<div class="offset3 gray">
 
-        <table id="employees" class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>الاسم</th>
-                    <th>الرقم الوظيفي</th>
-                    <th>البريد</th>
-                    <th>المسمى الوظيفي</th>
-                    <th>تعديل</th>
-                    <th>حذف</th>
+    <table id="employees" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>الاسم</th>
+                <th>الرقم الوظيفي</th>
+                <th>البريد</th>
+                <th>المسمى الوظيفي</th>
+                <th>تعديل</th>
+                <th>حذف</th>
 
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-    </div>
-    
+</div>
 
 @section scripts{    
     <script>
         $(document).ready(function () {
-            $("#employees").DataTable({
-            ajax: {
-                url: "/api/Employees",
-                    dataSrc: "",
-                    method:"get"
-            },
-            columns:
-            [
-                {data: "fullName"},
-                { data: "idCodeNum" },
-                { data: "mailAddress" },
-                { data: "positionID" },
-                    {
-                        data: "id",
-                        render: function () {
-                            return "<button class='btn btn-default' data-employee-id=" + this.data + ">تعديل</button>"
-                        }
-                    },
-                    {
-                        data: "id",
-                        render: function () {
-                            return "<button class='btn btn-danger js-delete' data-employee-id=" + this.data + ">حذف</button>"
-                        }
-                        
-                    }
+            var table = $("#employees").DataTable({
+                ajax: {
+                    url: "/api/employees",
+                    dataSrc:""
+                },
+                columns:
+                    [
+                        { data: "fullName" },
+                        { data: "dateofBirth" },
+                        { data: "mailAddress" },
+                        { data: "positionID" },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-default' data-employee-id="+data+">تعديل</button>"
+                            }
 
-            ]
+                        },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-default hoveralert js-delete' data-employee-id=" + data + ">حذف</button>"
+                            }
+                        }
+                    ]
+            });
+
+            $("#employees").on("click", ".js-delete", function () {
+
+                var button = $(this);
+
+                bootbox.confirm("هل تريد حذف هذا الملف؟", function (result) {
+                    if (result)
+                        $.ajax({
+
+                            url: "/api/employees/" + button.attr("data-employee-id"),
+                            method: "delete",
+                            success: function () {
+
+                                table.row(button.parents("tr")).remove().draw();
+                                to.success("تم الحذف");
+                            }
+
+                        });                
+                });
             });
         });
+
+
     </script>
     
+    
+    
     }
+
+
+
+
+    #<!-- #region    -->
+@*@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#employees").DataTable({
+                ajax: {
+                    url: "/api/Employees",
+                    dataSrc: "",
+                    method: "get"
+                },
+                columns:
+                    [
+                        { data: "fullName" },
+                        { data: "idCodeNum" },
+                        { data: "mailAddress" },
+                        { data: "positionID" },
+                        {
+                            data: "id",
+                            render: function () {
+                                return "<button class='btn btn-default' data-employee-id=" + this.data + ">تعديل</button>"
+                            }
+                        },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-default hoveralert js-delete' data-employee-id=" + this.data + ">حذف</button>"
+                            }
+
+                        }
+                    ]
+            });
+
+            $("#employees").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("هل تريد خذف هذا الموظف؟", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/employees/" + button.attr("data-employee-id"),
+                            method: "Delete",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+
+}*@
+
+<!-- #endregion -->

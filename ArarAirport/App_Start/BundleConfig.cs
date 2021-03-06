@@ -10,8 +10,10 @@ namespace ArarAirport
             bundles.Add(new ScriptBundle("~/bundles/Lib").Include(
                         "~/Scripts/jquery-{version}.js",
                          "~/Scripts/bootstrap.js",
+                          "~/scripts/bootbox.js",
                          "~/scripts/datatables/jquery.datatables.js",
-                        "~/scripts/datatables/datatables.bootstrap.js"
+                        "~/scripts/datatables/datatables.bootstrap.js",
+                         "~/scripts/toastr.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -27,6 +29,7 @@ namespace ArarAirport
                       "~/Content/bootstrap.css",
                        "~/Content/bootstrap-rtl.css",
                        "~/content/datatables/css/datatables.bootstrap.css",
+                        "~/content/toastr.css",
                       "~/Content/site.css"
 
                       ));

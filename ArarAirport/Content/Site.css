@@ -71,7 +71,10 @@ label {
     border-radius: 7px;
 }
 
-
+.hoveralert:hover{
+    background-color:#fff;
+    border-color:darkred;
+}
 
 
 
