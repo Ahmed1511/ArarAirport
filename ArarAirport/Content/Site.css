@@ -64,6 +64,13 @@ label {
     color: #337ab7;
 }
 
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 33px;
+    font-size: 22px;
+    line-height: 1.3333333;
+    border-radius: 7px;
+}
+
 
 
 

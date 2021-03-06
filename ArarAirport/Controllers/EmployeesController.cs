@@ -1,5 +1,6 @@
 ﻿using ArarAirport.Models;
 using ArarAirport.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ArarAirport.Controllers
@@ -43,6 +44,32 @@ namespace ArarAirport.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            var employee = _context.Employees.SingleOrDefault(a => a.ID == id);
+
+            return View(employee);
+        }
+
+        [HttpPost]
+        public ActionResult UPdate(EmployeeViewModel VM)
+        {
+            var employee = new Employee
+            {
+                FullName = string.Format("{0} {1} {2}", VM.FirstName, VM.MidName, VM.LastName),
+                DateofBirth = VM.DateofBirth,
+                IDCodeNum = VM.IDCodeNum,
+                ContractTypeID = VM.ContractTypeID,
+                PositionID = VM.PositionID,
+                MailAddress = VM.MailAddress,
+                PhoneNumber = VM.PhoneNumber
+            };
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Employees");
         }
     }
 }
