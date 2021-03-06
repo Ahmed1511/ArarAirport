@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="offset2">
+    @Html.ActionLink("جديد","Create",null,new {@class= "btn btn-primary btn-lg" })
+</div>
+    <div class="offset3 gray">
+
+        <table id="employees" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>الاسم</th>
+                    <th>الرقم الوظيفي</th>
+                    <th>البريد</th>
+                    <th>المسمى الوظيفي</th>
+                    <th>تعديل</th>
+                    <th>حذف</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+    
+
+@section scripts{    
+    <script>
+        $(document).ready(function () {
+            $("#employees").DataTable({
+            ajax: {
+                url: "/api/Employees",
+                    dataSrc: "",
+                    method:"get"
+            },
+            columns:
+            [
+                {data: "fullName"},
+                { data: "idCodeNum" },
+                { data: "mailAddress" },
+                { data: "positionID" },
+                    {
+                        data: "id",
+                        
+                    },
+                    { data: "id" }
+
+            ]
+            });
+        });
+    </script>
+    
+    }

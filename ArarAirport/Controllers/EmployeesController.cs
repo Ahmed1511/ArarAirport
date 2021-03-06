@@ -19,5 +19,30 @@ namespace ArarAirport.Controllers
 
             return View(employee);
         }
+
+        [HttpPost]
+        public ActionResult Create(EmployeeViewModel VM)
+        {
+            var employee = new Employee
+            {
+                FullName = string.Format("{0} {1} {2}", VM.FirstName, VM.MidName, VM.LastName),
+                DateofBirth = VM.DateofBirth,
+                IDCodeNum = VM.IDCodeNum,
+                ContractTypeID = VM.ContractTypeID,
+                PositionID = VM.PositionID,
+                MailAddress = VM.MailAddress,
+                PhoneNumber = VM.PhoneNumber
+            };
+
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Employees");
+        }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }

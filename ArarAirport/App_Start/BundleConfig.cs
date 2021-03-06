@@ -7,7 +7,7 @@ namespace ArarAirport
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            bundles.Add(new ScriptBundle("~/bundles/Lib").Include(
                         "~/Scripts/jquery-{version}.js",
                          "~/Scripts/bootstrap.js",
                          "~/scripts/datatables/jquery.datatables.js",
@@ -26,8 +26,8 @@ namespace ArarAirport
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                        "~/Content/bootstrap-rtl.css",
-                      "~/Content/site.css",
-                      "~/content/datatables/css/datatables.bootstrap.css"
+                       "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/site.css"
 
                       ));
         }
