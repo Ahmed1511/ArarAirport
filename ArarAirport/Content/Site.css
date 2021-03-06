@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Tajawal', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +23,49 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.offset1{margin:10px}
+.offset2{margin: 20px}
+.offset3{margin:30px}
+.offset4{margin:40px}
+
+/* Bootstrap OvrLoad*/
+
+/* Nav Bar*/
+
+.navbar-inverse {
+    background-color: #337ab7;
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-size: 18px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.form-control {
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight:bold
+}
+
+.titlelabel {
+    font-size: 18px;
+    color: #337ab7;
+}
+
+label {
+    font-size: 16px;
+    color: #337ab7;
+}
+
+
+
+
+
+

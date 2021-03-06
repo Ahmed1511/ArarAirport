@@ -108,3 +108,10 @@ C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\obj\Debug\ArarAirport
 C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\obj\Debug\ArarAirport.pdb
 C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\obj\Debug\ArarAirport.Migrations.initialModel.resources
 C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\obj\Debug\ArarAirport.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\obj\Debug\ArarAirport.Migrations.EmployeeTable.resources
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\bin\System.Net.Http.Formatting.dll
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\bin\System.Web.Http.dll
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\bin\System.Web.Http.WebHost.dll
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\bin\System.Net.Http.Formatting.xml
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\bin\System.Web.Http.xml
+C:\Users\DELL\Desktop\ArarDemo\ArarAirportDemo\ArarAirport\bin\System.Web.Http.WebHost.xml
